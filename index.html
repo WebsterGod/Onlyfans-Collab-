@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium OnlyFans Collab Hub</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#B76E79',secondary:'#2D2D2D'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+background-color: #0F0F0F;
+color: #fff;
+}
+h1, h2, h3, h4, h5 {
+font-family: 'Playfair Display', serif;
+}
+.hero-gradient {
+background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://readdy.ai/api/search-image?query=luxury%2520elegant%2520dark%2520background%2520with%2520subtle%2520gold%2520and%2520rose%2520gold%2520elements%252C%2520premium%2520ambiance%252C%2520sophisticated%2520texture%252C%2520high-end%2520aesthetic%252C%2520dramatic%2520lighting%252C%2520moody%2520atmosphere%252C%2520sensual%2520but%2520classy&width=375&height=500&seq=hero1&orientation=portrait');
+background-size: cover;
+background-position: center;
+}
+.form-input {
+background-color: rgba(255,255,255,0.05);
+border: 1px solid rgba(183, 110, 121, 0.3);
+transition: all 0.3s ease;
+}
+.form-input:focus {
+border-color: #B76E79;
+box-shadow: 0 0 0 2px rgba(183, 110, 121, 0.2);
+}
+.custom-checkbox {
+position: relative;
+padding-left: 30px;
+cursor: pointer;
+user-select: none;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: rgba(255,255,255,0.05);
+border: 1px solid rgba(183, 110, 121, 0.3);
+border-radius: 4px;
+}
+.custom-checkbox:hover input ~ .checkmark {
+background-color: rgba(255,255,255,0.1);
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #B76E79;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 7px;
+top: 3px;
+width: 6px;
+height: 12px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.faq-item {
+border-bottom: 1px solid rgba(183, 110, 121, 0.2);
+}
+.faq-answer {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease;
+}
+.faq-answer.active {
+max-height: 500px;
+}
+.rose-gold-gradient {
+background: linear-gradient(135deg, #B76E79 0%, #E2A9A1 100%);
+}
+.testimonial-bg {
+background: rgba(255,255,255,0.03);
+border: 1px solid rgba(183, 110, 121, 0.2);
+}
+.nav-fixed {
+backdrop-filter: blur(10px);
+background-color: rgba(15, 15, 15, 0.8);
+}
+</style>
+</head>
+<body class="text-white">
+<!-- Navigation -->
+<nav class="nav-fixed fixed top-0 left-0 w-full z-50 px-4 py-3 flex items-center justify-between">
+<div class="font-['Pacifico'] text-primary text-2xl">logo</div>
+<button id="mobileMenuButton" class="w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</nav>
+<div id="mobileNav" class="fixed top-0 right-0 w-[280px] h-full bg-[#0F0F0F] transform translate-x-full transition-transform duration-300 ease-in-out z-[60] shadow-xl">
+<div class="p-6">
+<button id="mobileMenuClose" class="absolute top-3 right-3 w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-close-line ri-lg"></i>
+</button>
+<div class="mt-8 space-y-6">
+<a href="#" class="block text-lg font-medium hover:text-primary transition-colors">Home</a>
+<a href="#howItWorks" class="block text-lg font-medium hover:text-primary transition-colors">How It Works</a>
+<a href="#testimonials" class="block text-lg font-medium hover:text-primary transition-colors">Testimonials</a>
+<a href="#application" class="block text-lg font-medium hover:text-primary transition-colors">Apply Now</a>
+<a href="#faq" class="block text-lg font-medium hover:text-primary transition-colors">FAQ</a>
+<a href="#contact" class="block text-lg font-medium hover:text-primary transition-colors">Contact</a>
+</div>
+</div>
+</div>
+<div id="menuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[55] hidden"></div>
+<!-- Hero Section -->
+<section class="hero-gradient pt-20 pb-12 px-5 min-h-[600px] flex flex-col justify-center items-center text-center">
+<div class="max-w-md mx-auto">
+<h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight flex items-center justify-center gap-2">
+<span class="text-primary">💎</span>
+Turn $500 Investment Into $35K+ in 90 Days — OnlyFans Collab Opportunity
+</h1>
+<div class="space-y-3 mb-8">
+<p class="text-lg opacity-90">Join a proven, high-profit partnership with a 50/50 revenue split.</p>
+<p class="text-lg opacity-90">Upfront $500 secures your spot. Past partners made $30K–$70K. Apply now.</p>
+</div>
+<a href="https://www.paypal.me/Travelcom2090" class="block w-full py-4 px-6 bg-primary text-black font-semibold rounded-button transition-all hover:bg-opacity-90 transform hover:scale-[1.02] cursor-pointer flex items-center justify-center gap-2">
+<span>🔥</span>
+Apply & Pay $500 Booking Fee
+</a>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="py-12 px-5">
+<div class="max-w-md mx-auto">
+<h2 class="text-2xl font-bold mb-8 text-center">How It Works</h2>
+<div class="bg-white bg-opacity-[0.03] rounded-md p-6 space-y-6">
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+<i class="ri-money-dollar-circle-line ri-lg text-primary"></i>
+</div>
+<div>
+<h3 class="font-semibold mb-1">Pay $500 upfront</h3>
+<p class="text-sm opacity-80">Your booking fee secures your spot and covers initial setup costs.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+<i class="ri-camera-line ri-lg text-primary"></i>
+</div>
+<div>
+<h3 class="font-semibold mb-1">Professional Production</h3>
+<p class="text-sm opacity-80">We handle the entire shoot, editing, and content creation process.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+<i class="ri-megaphone-line ri-lg text-primary"></i>
+</div>
+<div>
+<h3 class="font-semibold mb-1">Marketing & Sales</h3>
+<p class="text-sm opacity-80">Our team handles all promotion, traffic, and subscriber acquisition.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+<i class="ri-percent-line ri-lg text-primary"></i>
+</div>
+<div>
+<h3 class="font-semibold mb-1">50% Revenue Share</h3>
+<p class="text-sm opacity-80">You receive half of all revenue generated from your content.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+<i class="ri-trophy-line ri-lg text-primary"></i>
+</div>
+<div>
+<h3 class="font-semibold mb-1">Proven Results</h3>
+<p class="text-sm opacity-80">No following needed. Our previous model earned $35K+ in just 4 months.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonial Section -->
+<section class="py-12 px-5 bg-black bg-opacity-40">
+<div class="max-w-md mx-auto">
+<div class="testimonial-bg rounded-lg p-6 relative">
+<div class="absolute -top-3 left-4 text-primary text-4xl opacity-60">"</div>
+<p class="italic text-lg mb-6 pt-3">I invested $500 and made $35K in 4 months. The team handled everything professionally and I just collected my earnings. Highly recommended.</p>
+<div class="flex items-center">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary mr-3">
+<img src="https://readdy.ai/api/search-image?query=elegant%2520female%2520silhouette%252C%2520anonymous%252C%2520professional%2520portrait%252C%2520dark%2520lighting%252C%2520mysterious%252C%2520classy%252C%2520no%2520explicit%2520content%252C%2520artistic%2520shadow%2520profile&width=100&height=100&seq=avatar1&orientation=squarish" alt="Previous Partner" class="w-full h-full object-cover">
+</div>
+<div>
+<p class="font-semibold">Previous Partner</p>
+<p class="text-xs opacity-70">February 2025</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Application Form -->
+<section class="py-12 px-5" id="application">
+<div class="max-w-md mx-auto">
+<h2 class="text-2xl font-bold mb-2 text-center">Apply Now</h2>
+<p class="text-center opacity-80 mb-8">Fill out the form below to start your collaboration</p>
+<form id="applicationForm" class="space-y-5">
+<div class="space-y-1">
+<label for="fullName" class="text-sm font-medium">Full Name</label>
+<input type="text" id="fullName" class="form-input w-full h-12 px-4 rounded-md bg-opacity-5 text-white" required>
+</div>
+<div class="space-y-1">
+<label for="email" class="text-sm font-medium">Email Address</label>
+<input type="email" id="email" class="form-input w-full h-12 px-4 rounded-md bg-opacity-5 text-white" required>
+</div>
+<div class="space-y-1">
+<label for="social" class="text-sm font-medium">Instagram/Twitter Handle</label>
+<input type="text" id="social" class="form-input w-full h-12 px-4 rounded-md bg-opacity-5 text-white">
+</div>
+<div class="space-y-1">
+<label for="location" class="text-sm font-medium">Country/City</label>
+<input type="text" id="location" class="form-input w-full h-12 px-4 rounded-md bg-opacity-5 text-white" required>
+</div>
+<div class="space-y-1">
+<label for="why" class="text-sm font-medium">Why do you want to collab?</label>
+<textarea id="why" rows="4" class="form-input w-full p-4 rounded-md bg-opacity-5 text-white" required></textarea>
+</div>
+<div class="pt-2">
+<label class="custom-checkbox flex items-start">
+<input type="checkbox" required>
+<span class="checkmark"></span>
+<span class="text-sm ml-2">I confirm I am 18+ years old and can provide STD test results (within 14 days)</span>
+</label>
+</div>
+<button type="submit" class="w-full py-4 px-6 bg-primary text-black font-semibold rounded-button transition-all hover:bg-opacity-90 transform hover:scale-[1.02] cursor-pointer mt-6">Submit Application</button>
+</form>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-12 px-5 bg-black bg-opacity-40">
+<div class="max-w-md mx-auto">
+<h2 class="text-2xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+<div class="space-y-4">
+<div class="faq-item pb-4">
+<div class="faq-question flex justify-between items-center cursor-pointer">
+<h3 class="font-medium">Is the $500 booking fee refundable?</h3>
+<i class="ri-add-line ri-lg text-primary faq-icon"></i>
+</div>
+<div class="faq-answer mt-2 text-sm opacity-80 pl-1">
+<p>No, the $500 fee is non-refundable as it covers initial setup costs, equipment, and production planning. This ensures we only work with serious applicants.</p>
+</div>
+</div>
+<div class="faq-item pb-4">
+<div class="faq-question flex justify-between items-center cursor-pointer">
+<h3 class="font-medium">Do I need to have followers already?</h3>
+<i class="ri-add-line ri-lg text-primary faq-icon"></i>
+</div>
+<div class="faq-answer mt-2 text-sm opacity-80 pl-1">
+<p>No, you don't need any existing following. Our marketing team handles all promotion and subscriber acquisition. We bring the audience to you.</p>
+</div>
+</div>
+<div class="faq-item pb-4">
+<div class="faq-question flex justify-between items-center cursor-pointer">
+<h3 class="font-medium">When do I start earning?</h3>
+<i class="ri-add-line ri-lg text-primary faq-icon"></i>
+</div>
+<div class="faq-answer mt-2 text-sm opacity-80 pl-1">
+<p>Most partners begin seeing revenue within 30-90 days after content production. We provide monthly reports and transparent earnings breakdowns.</p>
+</div>
+</div>
+<div class="faq-item pb-4">
+<div class="faq-question flex justify-between items-center cursor-pointer">
+<h3 class="font-medium">What about safety and privacy?</h3>
+<i class="ri-add-line ri-lg text-primary faq-icon"></i>
+</div>
+<div class="faq-answer mt-2 text-sm opacity-80 pl-1">
+<p>We require STD test results within 14 days of shooting. We also offer optional NDAs for privacy protection. All content is secured and distributed only through approved channels.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-12 px-5">
+<div class="max-w-md mx-auto text-center">
+<h2 class="text-2xl font-bold mb-4">Ready to Start Earning?</h2>
+<p class="opacity-80 mb-8">Limited spots available. Secure yours today.</p>
+<a href="https://www.paypal.me/Travelcom2090" class="inline-block py-4 px-8 bg-primary text-black font-semibold rounded-button transition-all hover:bg-opacity-90 transform hover:scale-[1.02] cursor-pointer">Apply & Pay Booking Fee</a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="py-8 px-5 bg-black bg-opacity-60">
+<div class="max-w-md mx-auto">
+<div class="mb-6">
+<div class="font-['Pacifico'] text-primary text-xl mb-4">logo</div>
+<p class="text-sm opacity-70">Premium OnlyFans Collab Hub</p>
+</div>
+<div class="border-t border-gray-800 pt-6 pb-2">
+<h3 class="text-sm font-semibold mb-4">Terms & Conditions</h3>
+<ul class="text-xs space-y-2 opacity-70">
+<li class="flex items-start">
+<span class="text-primary mr-2">•</span>
+<span>Must be 18+ years of age with valid ID</span>
+</li>
+<li class="flex items-start">
+<span class="text-primary mr-2">•</span>
+<span>$500 booking fee is non-refundable</span>
+</li>
+<li class="flex items-start">
+<span class="text-primary mr-2">•</span>
+<span>STD test results required within 14 days of shooting</span>
+</li>
+<li class="flex items-start">
+<span class="text-primary mr-2">•</span>
+<span>50/50 profit split on all revenue generated</span>
+</li>
+<li class="flex items-start">
+<span class="text-primary mr-2">•</span>
+<span>NDA available upon request</span>
+</li>
+</ul>
+</div>
+<div class="mt-6 text-center text-xs opacity-50">
+<p>© 2025 Premium OnlyFans Collab Hub. All rights reserved.</p>
+<p class="mt-1">Last updated: June 19, 2025</p>
+</div>
+</div>
+</footer>
+<!-- Fixed Mobile CTA -->
+<div class="lg:hidden fixed bottom-0 left-0 w-full p-4 bg-black bg-opacity-90 backdrop-blur-sm z-40">
+<a href="https://www.paypal.me/Travelcom2090" class="block w-full py-3 px-6 bg-primary text-black font-semibold rounded-button text-center cursor-pointer">Apply Now</a>
+</div>
+<script id="faqToggle">
+document.addEventListener('DOMContentLoaded', function() {
+const faqQuestions = document.querySelectorAll('.faq-question');
+faqQuestions.forEach(question => {
+question.addEventListener('click', function() {
+const answer = this.nextElementSibling;
+const icon = this.querySelector('.faq-icon');
+if (answer.classList.contains('active')) {
+answer.classList.remove('active');
+icon.classList.remove('ri-subtract-line');
+icon.classList.add('ri-add-line');
+} else {
+answer.classList.add('active');
+icon.classList.remove('ri-add-line');
+icon.classList.add('ri-subtract-line');
+}
+});
+});
+});
+</script>
+<script id="formSubmission">
+document.addEventListener('DOMContentLoaded', function() {
+const form = document.getElementById('applicationForm');
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+// Form validation
+const fullName = document.getElementById('fullName').value;
+const email = document.getElementById('email').value;
+const location = document.getElementById('location').value;
+const why = document.getElementById('why').value;
+if (!fullName || !email || !location || !why) {
+alert('Please fill in all required fields');
+return;
+}
+// Success message
+const formContainer = form.parentElement;
+form.style.display = 'none';
+const successMessage = document.createElement('div');
+successMessage.className = 'text-center py-8';
+successMessage.innerHTML = `
+<div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+<i class="ri-check-line ri-2x text-primary"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Application Received!</h3>
+<p class="opacity-80 mb-6">Thank you for applying. Please complete your booking by paying the $500 fee.</p>
+<a href="https://www.paypal.me/Travelcom2090" class="inline-block py-4 px-8 bg-primary text-black font-semibold rounded-button transition-all hover:bg-opacity-90 cursor-pointer">Pay Booking Fee</a>
+`;
+formContainer.appendChild(successMessage);
+});
+});
+</script>
+<script id="mobileNavigation">
+document.addEventListener('DOMContentLoaded', function() {
+const menuButton = document.getElementById('mobileMenuButton');
+const mobileNav = document.getElementById('mobileNav');
+const closeButton = document.getElementById('mobileMenuClose');
+const menuOverlay = document.getElementById('menuOverlay');
+function openMobileMenu() {
+mobileNav.classList.remove('translate-x-full');
+menuOverlay.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+mobileNav.classList.add('translate-x-full');
+menuOverlay.classList.add('hidden');
+document.body.style.overflow = '';
+}
+if (menuButton) {
+menuButton.addEventListener('click', openMobileMenu);
+}
+if (closeButton) {
+closeButton.addEventListener('click', closeMobileMenu);
+}
+if (menuOverlay) {
+menuOverlay.addEventListener('click', closeMobileMenu);
+}
+document.querySelectorAll('#mobileNav a').forEach(link => {
+link.addEventListener('click', closeMobileMenu);
+});
+});
+</script>
+<script id="smoothScroll">
+document.addEventListener('DOMContentLoaded', function() {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+</body>
+</html>
